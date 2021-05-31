@@ -23,4 +23,10 @@ function add_tcm_user() {
        remove_admin_bar();
     }
 }
+add_action('after_setup_theme', 'remove_admin_bar');
+function remove_admin_bar() {
+    if (current_user_can('editor')) {
+        show_admin_bar(false);
+    }
+}
 ?>
